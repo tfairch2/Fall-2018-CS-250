@@ -1,74 +1,73 @@
 #include <stdexcept>
-#include <string.h>
-using namespace std;
+#include <string>
 
-
-
-//************************ STEP 3 ************************
-struct InsufficientFunds : public exception {
-public:
-	InsufficientFunds() {}
-	virtual const char* what() const throw() {
-		return "\nError, account has insufficient funds for withdrawl!\n";
-	}
-};
-double withdraw(double amount) {
-	if (amount > balance) {
-		throw InsufficientFunds();
-	}
-}
-//************************end of step 3 **********************
-
-
-
-//************************ STEP 4 ************************
-struct NegativeAmount: public exception{
+//******************* beginning STEP 2 ************************
+class NegativeAmount : public std :: logic_error {
 	public:
-		NegativeAmount(){}
-		virtual const char* what() const throw(){
-			return "\nError, you can't deposit a negative amount!\n";
-		}
+	NegativeAmount(const std::string& message = " ") : std::exception("Negative Amount: " + message){}
+
 };
-//*******************end of Step 4 ***********************
+//******************* end of STEP 2 ***************************
 
 
-//**************************** Step 5 ************************
-struct NegativeAmountWithdrawn : public exception {
-public:
-	NegativeAmountWithdrawn() {}
-	virtual const char* what() const throw() {
-		return "\nError, you can't withdraw a negative amount!\n";
-	}
+//******************* beginning STEP 3 ************************
+class InsufficientFunds : public std :: logic_error {
+	public:
+	InsufficientFunds(const std::string& message = " ") : std::exception("Insufficient Funds: " + message){}
+
 };
-
-double withdrawNegative(double amount) {
-	if (amount < 0) {
-		throw NegativeAmountWithdrawn();
-	}
-	//*********************** end of Step 5*********************
-	else {
-		balance -= amount;
-		return balance;
-	}
-}
+//******************* end of STEP 3 ***************************
 
 
 class Account
 {
 	private:
 		double balance;
-		double deposit;
+	
 	public:
-		Account(){
+		Account()
+		{
 			balance = 0;
 		}
-		
-		Account(double initialDeposit){
+		Account(double initialDeposit)
+		{
 			balance = initialDeposit;
 		}
-		
-		double getBalance(){
+		double getBalance()
+		{
 			return balance;
 		}
+		double deposit(double amount)
+		{
+			if (amount > 0)
+				balance += amount;
+			else
 
+//******************* beginning STEP 4 ************************
+			throw NegativeAmount ("Error, you can't deposit a negative amount");
+//******************* end of STEP 4 ***************************
+
+			return balance;
+		}
+		double withdraw(double amount)
+		{
+			if (amount < 0)
+
+
+/************************** beginning STEP 5 ******************************
+ ******** First withdrawl exception - withdrawing a negative amount *******/
+			{
+				throw NegativeAmount ("Error, you can't withdraw a negative amount!");
+			}
+ /******** Second withdrawl exception - excessive funds withdrawl *********/
+			else if (amount > balance)
+			{
+				throw InsufficientFunds("Error, account has insufficient funds for withdrawl!");
+			}
+//*************************** end of STEP 5 *******************************
+
+			else
+				balance -= amount;
+			return balance;
+		}
 };
