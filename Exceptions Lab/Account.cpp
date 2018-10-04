@@ -1,3 +1,7 @@
+//Terry Fairchild
+//Lab 05 - Exceptions
+//CS 250, Data Structures
+
 #include <stdexcept>
 #include <string>
 

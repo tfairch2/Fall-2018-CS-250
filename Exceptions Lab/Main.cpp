@@ -1,3 +1,7 @@
+//Terry Fairchild
+//Lab 05 - Exceptions
+//CS 250, Data Structures
+
 #include <iostream>
 #include "Account.cpp"
 using namespace std;
