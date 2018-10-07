@@ -23,9 +23,9 @@ void clearStack(LinkedStack<char> LinkedStack){
 	// STEP 4 **************************
 void clearStack();//clearStack is called in order to clear out LinkedStack
 
-bool testPal(LinkedStack<char>* LinkedStack, std::string inputStr){  //This is the algorithm which tests for a palindrome
+bool testPal(LinkedStack<char>* LinkedStack, std::string inputStr) {  //This is the algorithm which tests for a palindrome
 	 for (int i = 0; i <= inputStr.length() - 1; i++){ 
-		 bool LinkedStack<char>::push(const char& inputStr.length()); //The textbook was used as a model for this line but I cannot resolve this error
+	 bool LinkedStack<char>::push(const char& inputStr.length()); //The textbook was used as a model for this line but I cannot resolve this error
 		 }
 	std::string reverse;
 	 for (int i = 0; i <= inputStr.length() - 1; i++){
