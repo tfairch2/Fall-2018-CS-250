@@ -20,7 +20,7 @@ void clearStack(LinkedStack<char> LinkedStack){
 
 
 
-	// STEP 4 **************************
+	// STEP 4 ************************** THIS IS THE BLOCK THAT CAUSES A COMPILE ERROR ************************************
 void clearStack(LinkedStack<char> LinkedStack);//Passing the stack pointer
 bool testPal(LinkedStack<char> LinkedStack, std::string inputStr){  //This is intended to be the algorithm which tests for a palindrome
 	 for (int i = 0; i <= inputStr.length() - 1; i++){ 
@@ -36,7 +36,7 @@ bool testPal(LinkedStack<char> LinkedStack, std::string inputStr){  //This is in
 			}
 	 }
  }
-	// end of 4 ***************************
+	// end of 4 ****************** ONCE THIS IS RESOLVED I AM HOPEFUL THAT THERE ARE NO LOGIC ERRORS ********************
 
 
 
