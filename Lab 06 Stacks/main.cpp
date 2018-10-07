@@ -9,6 +9,7 @@
 
 
 	// STEP 3 **************************
+void clearStack(){}
 void clearStack(LinkedStack<char> LinkedStack){
 		while(!LinkedStack.isEmpty()){
 		LinkedStack.pop();
@@ -19,24 +20,28 @@ void clearStack(LinkedStack<char> LinkedStack){
 
 
 
+	// STEP 4 **************************
+void clearStack();//clearStack is called in order to clear out LinkedStack
 
-	// STEP 4 ************************** THIS IS THE BLOCK THAT CAUSES A COMPILE ERROR ************************************
-void clearStack(LinkedStack<char> LinkedStack);//Passing the stack pointer
-bool testPal(LinkedStack<char> LinkedStack, std::string inputStr){  //This is intended to be the algorithm which tests for a palindrome
+bool testPal(LinkedStack<char>* LinkedStack, std::string inputStr){  //This is the algorithm which tests for a palindrome
 	 for (int i = 0; i <= inputStr.length() - 1; i++){ 
-			 LinkedStack.push(inputStr.length());
+		 bool LinkedStack<char>::push(const char& inputStr.length()); //The textbook was used as a model for this line but I cannot resolve this error
 		 }
+	std::string reverse;
 	 for (int i = 0; i <= inputStr.length() - 1; i++){
+
 	 /*This step uses 'peek()' to flip 'inputStr' and store it in 'reverse'.  When compared, a palindrome exists if 'inputStr' is the same
-			as 'reverse'.  But I am unable to resolve the following error.*/
-			std::string reverse = LinkedStack.peek(); 
-			LinkedStack.pop();
-			if (reverse == inputStr) {
-				return true;
+			as 'reverse'.  The following two lines of code are also modeled after the text, but I don't have sufficient understanding to 
+			resolve the following errors.*/
+		reverse = LinkedStack.peek();
+		LinkedStack.pop();
 			}
+	 if (reverse == inputStr) {
+		 return true;
 	 }
+	 else return false;
  }
-	// end of 4 ****************** ONCE THIS IS RESOLVED I AM HOPEFUL THAT THERE ARE NO LOGIC ERRORS ********************
+	// end of 4 ******************
 
 
 
@@ -62,16 +67,12 @@ int main(){
 		std::cin >> inputStr;
 	// end of 2 ***************************
 
-
-
 	
 
 	// STEP 5 **************************         
-		bool testPal(LinkedStack<char> LinkedStack, std::string inputStr); 
-		return result;
+		result = testPal(stackPtr, inputStr);
 	// end of 5 **************************
-
-
+		
 
 		std::cout << inputStr;
 		if (result)
